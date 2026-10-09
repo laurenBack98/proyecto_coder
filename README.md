@@ -1,4 +1,4 @@
-# Proyecto_Coder
+# Proyecto Coder
 # Cliente LLM Asíncrono
 
 Este proyecto es una pequeña base para interactuar con distintos proveedores de modelos de lenguaje (LLM) desde una sola interfaz en Python. Está pensado como una demo de integración y comparación de respuestas entre OpenAI, Anthropic, Gemini y Hugging Face, con soporte para llamadas asíncronas y streaming.
