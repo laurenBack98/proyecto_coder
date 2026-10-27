@@ -1,5 +1,4 @@
 from typing import AsyncGenerator, List, Type
-
 from llm_client.base import BaseLLMClient
 from llm_client.clients.anthropic_client import AnthropicClient
 from llm_client.clients.gemini_client import GeminiClient
@@ -33,6 +32,10 @@ class AsyncLLMManager:
         if not api_key:
             raise ValueError(f"Falta {campo_key} en la configuración")
 
+        async def stream(self, messages: List[ChatMessage]) -> AsyncGenerator[str, None]:
+            async for chunk in self._client.generate_stream(messages):
+                yield chunk
+        
         return cliente_cls(
             api_key=api_key.get_secret_value(),
             model=self.config.model,
