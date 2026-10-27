@@ -1,5 +1,3 @@
-
-
 from enum import Enum
 from typing import Optional
 from pydantic import BaseModel, Field, SecretStr, field_validator
@@ -32,7 +30,7 @@ class LLMConfig(BaseModel):
     anthropic_api_key: Optional[SecretStr] = None
     google_api_key: Optional[SecretStr] = None
     huggingface_api_key: Optional[SecretStr] = None
-    temperature: float = Field(default=0.7, ge=0, le=2)
+    temperature: float = Field(default=0.7, ge=0.0, le=2.0)
     max_tokens: int = Field(default=1024, gt=0)
 
 
@@ -41,3 +39,4 @@ class ModelResponse(BaseModel):
     model: str
     content: str
     error: Optional[str] = None
+
